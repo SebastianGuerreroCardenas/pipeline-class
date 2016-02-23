@@ -1,0 +1,11 @@
+#fade {
+   -webkit-animation-duration: 3s;
+}
+
+th {
+	text-align:center;
+}
+
+#map {
+    height: 500px;
+}

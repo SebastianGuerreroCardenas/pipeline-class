@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="author" content="Sebastian Guerrero">
+        <meta name="description" content="Pipeline Sports Revenue">
+        <title>Byte2</title>
+        <!-- Bootstrap -->
+        <link href="css/animate.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <script src="js/jquery-2.2.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid ">
+            <!-- Row -->
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="page-header col-md-10">
+                    <div id="fade" class="animated fadeIn">
+                        <h1>Data Pipeline</h1>
+                    </div>
+                    <div id="fade" class="animated fadeIn">
+                        <h2>The Beatles Decade</h2>
+                    </div>
+                    <br>
+                    <div>
+                    <ul class="nav nav-pills">
+                      <li >
+                          <a href="/">Explore</a>
+                      </li>
+                      <li>
+                          <a href="about">About This Data</a>
+                      </li>
+                      <li class="active">
+                          <a href="quality">Data Quality</a>
+                      </li>
+                    </ul>
+                </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <!-- end Row -->
+            <!-- Row -->
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10 animated fadeIn" id="fade">
+                    
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <!--End Row -->
+            <!-- Row -->
+            <div class="row">
+                <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="panel panel-info"> 
+                            <div class="panel-heading"> 
+                                <h3 class="panel-title">Is the data complete?</h3> 
+                            </div> 
+                            <div class="panel-body">
+                                <h5>If not, what is missing and what concerns does it raise? What is your evidence for this?
+                                </h5>
+                                <p>When examining the raw data, that you can look at in the about this data page, I noticed that it wasn't complete. To begin with there was missing values in some of the dates. Some of the concerts were stored as a timeline of days, even though it was only one concert. For example, they said that a performance was stored as a collection of days, to fix this I only kept the only day of that day.
+                                </p>
+                                <br>
+                                <img src="static/dateCompleteness.png" class="img-thumbnail" alt="Proof of Missing Data" width="434" height="100">
+                                <br>
+                                <br>
+                                <p>Something else that was missing but on rare occasions was the country of some of the cities. To fix this by looking at the town or city, I was able to figure out the country. One example of missing data was there was a show in Madrid, but the country attribute was missing so all I needed to do was add Spain to that element.
+                                </p>
+                                <br>
+                                <img src="static/countryCompleteness.png" class="img-thumbnail" alt="Proof of Missing Data" width="574" height="58">
+                                <br>
+                                <br>
+                                <p>Even though there was missing data, there were no big concerns, because what was missing was very easily added back in.</p>
+                            </div> 
+                        </div> 
+                    </div>    
+                <div class="col-md-1 "></div>
+            </div>
+            <!-- End Row -->
+            <!-- Row -->
+            <div class="row">
+                <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="panel panel-success"> 
+                            <div class="panel-heading"> 
+                                <h3 class="panel-title">Is the data coherent?</h3> 
+                            </div> 
+                            <div class="panel-body"> 
+                                <h5>Does it make sense relative to itself? Does it match your expectations? Are the distributions sensible? What is your evidence for this?
+                                </h5>
+                                <p>When exploring the coherence of the data, there are a lot of issues that came up. To being with there was no consistency with several things in the way that values were stored. For example, dates were stored in either an element separated by slashes or a sentence with the date. To fix this, I had to find these inconsistencies and fix them.
+                                </p>
+                                <br>
+                                <img src="static/dateCompleteness.png" class="img-thumbnail" alt="Proof of Missing Data" width="434" height="100">
+                                <br>
+                                <br>
+                                <p>Another inconsistency in the data is the element of the venue. Using Google's tool OpenRefine, I looked for inconsistencies or clusters of data. What I found was there were many ways that people were writing the name for the same venue. For example, there is a chain of theaters in Europe named ABC Cinemas. Yet, when examining the data, there was some named ABC Theatre, ABC Cinema, ABC Cinemas. These different names can cause issues if I want to perform som sort of analysis on the different venues since they are all the same one, but marked as different. Things like this happen with other venues, and with OpenRefine, I fixed these inconsistencies.
+                                </p>
+                                <br>
+                                <img src="static/clustering1.png" class="img-thumbnail" alt="Proof of Missing Data" width="706" height="176">
+                                <br>
+                                <br>
+                                <img src="static/clustering2.png" class="img-thumbnail" alt="Proof of Missing Data" width="434" height="100">
+                                <br>
+                                <iframe class="embed-responsive-item" width="500" height="300" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?containerId=googft-gviz-canvas&amp;q=select+col3%2C+count()+from+1TOdb9cHWdUkuXg6d5B9_xPX5rbQxlkFCJkZSvNd_+group+by+col3+order+by+col3+asc+limit+100&amp;viz=GVIZ&amp;t=LINE&amp;uiversion=2&amp;gco_forceIFrame=true&amp;gco_hasLabelsColumn=true&amp;gco_vAxes=%5B%7B%22title%22%3Anull%2C+%22minValue%22%3Anull%2C+%22maxValue%22%3Anull%2C+%22useFormatFromData%22%3Atrue%2C+%22viewWindow%22%3A%7B%22max%22%3Anull%2C+%22min%22%3Anull%7D%7D%2C%7B%22useFormatFromData%22%3Atrue%2C+%22viewWindow%22%3A%7B%22max%22%3Anull%2C+%22min%22%3Anull%7D%2C+%22minValue%22%3Anull%2C+%22maxValue%22%3Anull%7D%5D&amp;gco_useFirstColumnAsDomain=true&amp;gco_booleanRole=certainty&amp;gco_lineWidth=2&amp;gco_hAxis=%7B%22useFormatFromData%22%3Atrue%2C+%22minValue%22%3Anull%2C+%22maxValue%22%3Anull%2C+%22viewWindow%22%3Anull%2C+%22viewWindowMode%22%3Anull%7D&amp;gco_legend=in&amp;gco_title=Performances+at+Venue+Companies&amp;gco_curveType=&amp;gco_interpolateNulls=false&amp;gco_domainAxis=%7B%22direction%22%3A1%7D&amp;width=500&amp;height=300"></iframe>
+                                <br>
+                                <br>
+                                <p>I did not know a lot about the Beatles history, so I assumed that there was an increasing rate of shows that they did per year because of how famous they got. When analysing the data of the dates of performances, the current format didn't allow me to explore. To fix this, using OpenRefine, I was able to split up the date into their own sets of columns of Month, Day, and Year. Furthermore, I was able to convert the old format of date into an actual date type with OpenRefine. My first step was to check the distribution of years and dates to make sure there wasn't anything off with my data. I found what was expected on the days, and month. Pretty much showing that their shows were evenly distributed, but when checking the years, there was an instant outlier. AS you can see on the image below. There is an increase in performances, but then there is a gap, that goes all the way to the year 1969. When exploring this, I found out that there was only one performance in this year. I first figured this was a mistake in the data, but upon further research on the Beatles history, it turns out that there were feuds in the years of 1967 to 1969. During this time, there were no shows until they reunited one last time in 1969 for one last show. I wanted to visualize this in a nicer way so I added another chart to visualize this.
+                                </p>
+                                <br>
+                                <img src="static/dates.png" class="img-thumbnail" alt="Proof of Missing Data" width="300" height="386">
+                                <br>
+                                
+                                    <iframe class="embed-responsive-item" width="500" height="300" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?containerId=googft-gviz-canvas&amp;q=select+col2%2C+count()+from+1TOdb9cHWdUkuXg6d5B9_xPX5rbQxlkFCJkZSvNd_+group+by+col2+order+by+col2+asc+limit+100&amp;viz=GVIZ&amp;t=LINE&amp;uiversion=2&amp;gco_forceIFrame=true&amp;gco_hasLabelsColumn=true&amp;width=500&amp;height=300"></iframe>
+                                
+                                <br>
+                                <p>Another inquiry that I had about the Beatles is that there was a belief that because of how popular they are, that they played a lot of music in the states. But as it turns out, they did not. To check this, I created a chart to show their percentages of shows across countries. The expected result was about an even or close to even distribution with the U.S. and the UK, but as it turns out it is not. To make sure this was true, I performed more research on the matter and found it to be true, that the majority of their shows were in the UK. This to me was amazing because it showed me that their impact was huge even though they only had about %10 of their shows in the United States.
+                                </p>
+                                <br>
+                                <iframe class="embed-responsive-item" width="500" height="300" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?containerId=googft-gviz-canvas&amp;q=select+col5%2C+count()+from+1TOdb9cHWdUkuXg6d5B9_xPX5rbQxlkFCJkZSvNd_+group+by+col5+order+by+col5+asc+limit+100&amp;viz=GVIZ&amp;t=PIE&amp;uiversion=2&amp;gco_forceIFrame=true&amp;gco_hasLabelsColumn=true&amp;gco_useFirstColumnAsDomain=true&amp;gco_is3D=false&amp;gco_pieHole=0&amp;gco_booleanRole=certainty&amp;gco_hAxis=%7B%22useFormatFromData%22%3Atrue%2C+%22viewWindow%22%3A%7B%22max%22%3Anull%2C+%22min%22%3Anull%7D%2C+%22minValue%22%3Anull%2C+%22maxValue%22%3Anull%7D&amp;gco_vAxes=%5B%7B%22useFormatFromData%22%3Atrue%2C+%22viewWindow%22%3A%7B%22max%22%3Anull%2C+%22min%22%3Anull%7D%2C+%22minValue%22%3Anull%2C+%22maxValue%22%3Anull%7D%2C%7B%22useFormatFromData%22%3Atrue%2C+%22viewWindow%22%3A%7B%22max%22%3Anull%2C+%22min%22%3Anull%7D%2C+%22minValue%22%3Anull%2C+%22maxValue%22%3Anull%7D%5D&amp;gco_title=Performance+%25+per+Country&amp;gco_pieSliceText=percentage&amp;gco_pieSliceTextStyle=%7B%22fontSize%22%3A%2212%22%7D&amp;gco_backgroundColor=%7B%22fill%22%3A%22%23ffffff%22%7D&amp;gco_legend=right&amp;width=500&amp;height=300"></iframe>
+                                <br>
+                                <p>Lastly, after cleaning the incoherent data, I knew that I would essentially need to map this data using google Fusion Tables to see where things are located. Yet, only putting countries in a table is not specific enough. Using only city or venue gives an issue to Google maps, because of the many places with the same name. In order to fix this, using OpenRefine I combined the table of the city with that of the country, and with that Google Maps was a lot better at recognizing the location.</p>
+                                <br>
+                                <iframe  class="embed-responsive-item" width="500" height="300" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?q=select+col6+from+1TOdb9cHWdUkuXg6d5B9_xPX5rbQxlkFCJkZSvNd_&amp;viz=MAP&amp;h=false&amp;lat=41.59118089533298&amp;lng=-10.873879637499954&amp;t=1&amp;z=2&amp;l=col6&amp;y=2&amp;tmplt=2&amp;hml=GEOCODABLE"></iframe>
+                                <br>
+                                <br>
+                            </div> 
+                        </div> 
+                    </div>    
+                <div class="col-md-1 "></div>
+            </div>
+            <!-- End Row -->
+            <!-- Row -->
+            <div class="row">
+                <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="panel panel-warning"> 
+                            <div class="panel-heading"> 
+                                <h3 class="panel-title">Is the data correct?</h3> 
+                            </div> 
+                            <div class="panel-body">
+                                <h5>What aspects of this data can you verify? How did you do so? What did you find?
+                                </h5>
+                                <br>
+                                <p>
+                                    When looking at the data of all the live concerts that the Beatles performed it is very hard to verify how correct it is. The way the data was collected was by going to outside resources like the "Beatle Bible," and adding it to the Wikipedia page. When randomly checking some of the concerts, they were all correct and did happen. Including some of the obscure ones. Yet, I don't know if I have all the complete data of all the Beatle concerts. To confirm this belief, I did research and what I found was that I was right. Not all concerts were recorded, but I don't think this makes the data I have bad. Lastly, When checking outliers like how there was only one performance in 1969, and not any afterwards. All I had to do was read up on their history. Doing so I found out that they in fact only had one and their last performance together in that year. I also found out that 1969 was the year they split up as a group.
+                                </p>
+                            </div> 
+                        </div> 
+                    </div>    
+                <div class="col-md-1 "></div>
+            </div>
+
+            <!-- End Row -->
+        </div>
+        <footer> <!-- Footer is new tag in HTML 5 -->
+        &copy; SGC 2016
+        </footer>
+
+    </body>
+</html>
